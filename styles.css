@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20;
+    margin: 0;
+    color: #333;
+}
+
+.player {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+.track-info img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.controls {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.controls button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.controls button:hover {
+    background-color: #005b4f;
+}
+.slider {
+    width: 100%;
+    margin: 10px 0;
+}
+.playlist {
+    display: none;
+    margin-top: 20px;
+    opacity: 0;
+    
+    transform: translateY(-20px);
+}
+.playlist h3 {
+ direction: rtl;
+ margin: 10px;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+.playlist.show {
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin: 0px 20px 0 20px ;
+    padding: 10px;
+    animation: slideIn 0.5s ease forwards;
+}
+.playlist-item {
+    cursor: pointer;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid rgba(26, 24, 24, 0.397);
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+.playlist-item:hover {
+    background-color: #00796b;
+    color: #f0f4f8;
+}
+.playlist-item img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: opacity 0.5s;
+}
+.volume-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+}
+.volume-modal .close-button {
+    background: transparent;
+    border: none;
+    color: #00796b;
+    font-size: 16px;
+    cursor: pointer;
+    float: right;
+}

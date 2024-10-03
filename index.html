@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موزیک پلیر</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<div class="player">
+    <img id="cover" src="./assets/logo.png" alt="Cover" style="width: 50vw;" />
+    <div class="track-info">
+        <h2 id="trackName">اسم آهنگ</h2>
+        <h3 id="artistName">نام خواننده</h3>
+    </div>
+    <audio id="audio">
+        <source id="audioSource" src="" type="audio/mpeg">
+        مرورگر شما از پخش صوتی پشتیبانی نمی‌کند.
+    </audio>
+    <div style="display: flex; justify-content: space-between;">
+        <span class="current-time" id="currentTime">00:00</span>
+        <span class="current-time" id="totalTime">00:00</span>
+    </div>
+    <input type="range" class="slider" id="progress" value="0" step="1" min="0">
+    <div class="controls">
+        <button onclick="shuffleSongs()"><i class="fa-solid fa-shuffle"></i></button>
+        <button onclick="prevSong()"><i class="fa-solid fa-backward"></i></button>
+        <button onclick="playPause()"><i class="fa-solid fa-play"></i></button>
+        <button onclick="nextSong()"><i class="fa-solid fa-forward"></i></button>
+        <button onclick="togglePlaylist()"><i class="fa-solid fa-list"></i></button>
+        <br />
+        <span class="controls" >
+            <button onclick="showVolumeModal()"><i class="fa-solid fa-volume-high"></i></button>
+            <button onclick="toggleRepeat()"><i class="fa-solid fa-repeat"></i> 1</button>
+            <button onclick="toggleRepeatAll()"><i class="fa-solid fa-repeat"> ALL</i></button>
+        </span>
+    </div>
+    
+    <div class="volume-modal" id="volumeModal">
+        <button class="close-button" onclick="closeVolumeModal()">×</button>
+        <h3>تنظیم حجم صدا</h3>
+        <input type="range" class="slider" id="volumeControl" value="100" step="1" min="0" max="100" aria-label="Volume Control">
+    </div>
+    
+
+
+    
+</div>
+
+<div class="playlist" id="playlist">
+    <h3>لیست آهنگ‌ها</h3>
+    <div id="playlistItems"></div>
+</div>
+
+<div class="modal" id="modal"></div>
+
+<script src="renderer.js" ></script>
+
+</body>
+</html>
